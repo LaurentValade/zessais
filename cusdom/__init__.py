@@ -13,3 +13,6 @@
 #    sont ajoutés du « package namespace ».
 #    Le fichier  __init__.py  peut contenir n’importe quel code Python.
 # 2. Les « namespace package » (3.3+) n’ont pas besoin d’un  __init__.py
+
+from cusdom import cusdom
+

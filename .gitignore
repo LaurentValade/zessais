@@ -1,0 +1,17 @@
+# Noirlistage intégral
+/*
+# Blanlistage dans /
+!/.gitignore
+!/Pipfile
+!/README.md
+!/conftest.py
+!/setup.py
+# Blanlistage dans /cusdom
+!/cusdom/
+/cusdom/**
+!/cusdom/__init__.py
+!/cusdom/cusdom.py
+# Blanlistage dans /tests
+!/tests/
+/tests/**
+!/tests/test_cusdom.py
