@@ -10,8 +10,10 @@ Exemples :
     /Users/lava/zessais/git/3.5_Branches_distantes/B-team/tests/test_cusdom.py
 """
 
-# from . cusdom import cusdom
 from cusdom import cusdom
+cusdom = cusdom.cusdom
+# ^ Il y a 3 cusdom : dossier / script / fonction :
+#   cusdom/cusdom.py::cusdom
 
 def test_cusdom():
     for distribution in [

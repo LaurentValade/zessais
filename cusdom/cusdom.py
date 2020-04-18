@@ -86,7 +86,10 @@ def cusdom(distribution='uniforme', size=1):
 
     u = random()
 
-    if distribution == 'exponentielle':
+    # [bug fix B-team] : Ajout du traitement (trivial) de uniforme
+    if distribution == 'uniforme':
+        return u
+    elif distribution == 'exponentielle':
         lmbd = 1.
         return - ln(1 - u) / lmbd
     elif distribution == 'cauchy':
@@ -94,7 +97,17 @@ def cusdom(distribution='uniforme', size=1):
     elif distribution == 'logistique':
         return - ln(u / (1. - u))
     elif distribution == 'laplace':
-        return - sign(u) * ln(1. - 2.*abs(u))
+        # return - sign(u) * ln(1. - 2.*abs(u))
+        # [bug fix B-team] : La formule ci-dessus vaut pour  u  distribué
+        # uniformément dans [-.5, .5], cf
+        # https://fr.wikipedia.org/wiki/Loi_de_Laplace_(probabilit%C3%A9s)
+        # il faudra corriger la formule dans
+        # https://fr.wikipedia.org/wiki/M%C3%A9thode_de_la_transform%C3%A9e_inverse
+        # Fait :-) !
+        mu = 0.
+        b = 1.
+        uc = u - .5
+        return mu - b * sign(uc) * ln(1. - 2.*abs(uc))
     elif distribution == 'normale':
         v = random()
         return sqrt(-2.*ln(u)) * cos(2.*pi*v)
