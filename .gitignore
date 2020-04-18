@@ -2,7 +2,6 @@
 !.gitignore
 !/custom/
 /custom/**
-!/cusdom/README.md
 !/cusdom/cusdom.py
 !/cusdom/__init__.py
 
